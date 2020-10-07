@@ -1,6 +1,5 @@
 import eel
 import numpy as np
-from sympy import *
 
 # Set web files folder and optionally specify which file types to check for eel.expose()
 #   *Default allowed_extensions are: ['.js', '.html', '.txt', '.htm', '.xhtml']
@@ -18,10 +17,7 @@ def get(matrix, vector):
 	Y = np.linalg.solve(L, B)
 	X = np.linalg.solve(LT,Y).tolist()
 	Ylist = Y.tolist()
-	print(X)
-	print(Ylist)
-	print(type(Ylist))
 	
-	return X
+	return X,Ylist
 
 eel.start('main.html', size = (500, 500))
