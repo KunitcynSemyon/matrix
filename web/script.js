@@ -56,10 +56,11 @@ function callBackGet(X){
     let resTable = document.createElement('table');
     resTable.id = 'resTable';
     let markup = '';
+    let XY = ['x1,2,3 = ', 'y1,2,3 = ']
     document.body.append(resTable);
-    for(let i = 0; i < rowCount; i++){
+    for(let i = 0; i < rowCount-1; i++){
         markup += '<tr>'
-        markup += `<td style="width: 30px; height: 15px; text-align: center; padding: 5px">${X[i]}</td>`
+        markup += `<td>${XY[i]}</td><td style="width: 30px; height: 15px; text-align: center; padding: 5px">${X[i]}</td>`
         markup += '</tr>'
     }
     markup += '</table>'
