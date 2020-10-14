@@ -20,4 +20,13 @@ def get(matrix, vector):
 	
 	return X,Ylist
 
+@eel.expose
+def method_sqrt(matrix, vector):
+	matrix = [[float(itemInner) for itemInner in itemOuter] for itemOuter in matrix]
+	A = np.array(matrix, dtype = 'float')
+	B = np.array(vector, dtype = 'float')
+
+	print(A)
+	print(B)
+
 eel.start('main.html', size = (500, 500))

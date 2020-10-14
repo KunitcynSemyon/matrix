@@ -50,6 +50,7 @@ function getValues() {
         }
     }
     eel.get(matrix, vector)(callBackGet)
+    eel.method_sqrt(matrix, vector)(callBackGet)
 }
 
 function callBackGet(X){
