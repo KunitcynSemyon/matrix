@@ -5,7 +5,7 @@ import numpy as np
 #   *Default allowed_extensions are: ['.js', '.html', '.txt', '.htm', '.xhtml']
 eel.init('web', allowed_extensions=['.js', '.html'])
 
-@eel.expose
+"""@eel.expose
 def get(matrix, vector):
 	matrix = [[float(itemInner) for itemInner in itemOuter] for itemOuter in matrix]
 	A = np.array(matrix, dtype = 'float')
@@ -19,6 +19,7 @@ def get(matrix, vector):
 	Ylist = Y.tolist()
 	
 	return X,Ylist
+"""
 
 @eel.expose
 def method_sqrt(matrix, vector):
@@ -26,7 +27,20 @@ def method_sqrt(matrix, vector):
 	A = np.array(matrix, dtype = 'float')
 	B = np.array(vector, dtype = 'float')
 
-	print(A)
-	print(B)
+	AT = A.transpose()
+	T = np.dot(AT, A)
+	C = np.dot(AT, B)
+	
+	L = np.linalg.cholesky(T)
+	LT = L.transpose()
+
+	Y = np.linalg.solve(L, C)
+	X = np.linalg.solve(LT,Y).tolist()
+	Ylist = Y.tolist()
+	print(X)
+
+	return X
+
+
 
 eel.start('main.html', size = (500, 500))

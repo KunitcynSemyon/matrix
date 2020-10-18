@@ -49,17 +49,34 @@ function getValues() {
             matrix[i] = row;
         }
     }
-    eel.get(matrix, vector)(callBackGet)
-    eel.method_sqrt(matrix, vector)(callBackGet)
+    //eel.get(matrix, vector)(callBackGet_chol)
+    eel.method_sqrt(matrix, vector)(callBackGet_sqrt)
 }
 
-function callBackGet(X){
+/*function callBackGet_chol(X){
     let resTable = document.createElement('table');
     resTable.id = 'resTable';
     let markup = '';
     let XY = ['x1,2,3 = ', 'y1,2,3 = ']
     document.body.append(resTable);
     for(let i = 0; i < rowCount-1; i++){
+        markup += '<tr>'
+        markup += `<td>${XY[i]}</td><td style="width: 30px; height: 15px; text-align: center; padding: 5px">${X[i]}</td>`
+        markup += '</tr>'
+    }
+    markup += '</table>'
+    resTable.innerHTML = markup;
+}
+*/
+
+function callBackGet_sqrt(X){
+    let resTable = document.createElement('table');
+    resTable.id = 'resTable';
+    console.log(X)
+    let markup = '';
+    let XY = ['x1 = ','x2 = ','x3 = ']
+    document.body.append(resTable);
+    for(let i = 0; i < rowCount; i++){
         markup += '<tr>'
         markup += `<td>${XY[i]}</td><td style="width: 30px; height: 15px; text-align: center; padding: 5px">${X[i]}</td>`
         markup += '</tr>'
